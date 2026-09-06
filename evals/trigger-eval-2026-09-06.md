@@ -23,3 +23,6 @@ Result: **42/42 unanimous, 0 misses, 0 false-triggers.** No description change r
 Borderline notes (all judges flagged independently): F4 flips to TRIGGER once deletion executes;
 F6 flips on pasted errors/registry edits; T6's quoting-scope wording is the thinnest match.
 Watch these three in real-world trials; they are the candidates for round 2.
+
+## Round 2 (fresh judges, conversation-free, via ralph)
+3 judges x 14 blind queries (expected answers withheld, order shuffled): **42/42 unanimous again**. TRIGGER on the 7 should-trigger items, NO on the 7 should-not items. Raw ballots in workspace ralph-eval/verdict-fresh-1..3.json (local only, not committed). Description unchanged.
