@@ -1,0 +1,29 @@
+{
+  "skill_name": "pwsh-pitfalls",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "pwsh 报错说 Select-String 没有 -Recurse 参数，我要递归搜 logs 目录下所有 .log 里含 ERROR 的行",
+      "expected_output": "Get-ChildItem -Recurse -File piped into Select-String, capped with Select-Object -First N; no -Recurse on Select-String itself",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "把这段 bash 改成 pwsh 跑：grep -r 'timeout' --include='*.log' app/ 2>/dev/null | head -20",
+      "expected_output": "Native Get-ChildItem/Select-String pipeline preferred; nested bash hatch only with outer single quotes if pipeline cannot be expressed natively",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "删除 build output/ 下所有 .tmp 文件，目录名带空格，先确认再删",
+      "expected_output": "Resolve absolute path, -LiteralPath, -WhatIf preview before Remove-Item -Recurse",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "git status",
+      "expected_output": "Run directly with no skill read and no pre-checks (explicit non-trigger)",
+      "files": []
+    }
+  ]
+}
