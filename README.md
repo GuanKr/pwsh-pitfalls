@@ -21,7 +21,7 @@ pitfall as symptom-plus-fix, verified by local measurement on Windows 10 + Power
 With the skills CLI (Claude Code / Codex compatible):
 
 ```sh
-npx skills add <you>/pwsh-pitfalls
+npx skills add GuanKr/pwsh-pitfalls
 ```
 
 Manual: copy `SKILL.md` + `references/` into your agent skills directory
