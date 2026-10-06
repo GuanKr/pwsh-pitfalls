@@ -24,6 +24,18 @@
       "prompt": "git status",
       "expected_output": "Run directly with no skill read and no pre-checks (explicit non-trigger)",
       "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "mysqldump 导出的中文全是问号，文件本身是 utf8mb4 的，怎么回事",
+      "expected_output": "Suspect the tool's own default charset before the shell: mysql without --default-character-set=utf8mb4 uses the OS codepage (gbk) and transcodes; set the tool's encoding flag explicitly. [Console]::OutputEncoding does not fix this. Use BaseStream.CopyTo for byte-exact dumps",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "pwsh 脚本里写了一行带中文引号“种子部分”的注释，ParserError 报方法调用中缺少 )，可那行看着没问题",
+      "expected_output": "CJK curly quotes are legal PowerShell string delimiters and terminate a double-quoted string early; replace with 【】 or plain quotes, and locate it via [Parser]::ParseFile rather than guessing by line",
+      "files": []
     }
   ]
 }

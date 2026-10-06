@@ -5,8 +5,11 @@ Windows PowerShell failure-repair skill for AI coding agents. Zero preflight, ze
 General-purpose agents are trained mostly on Linux/bash and fail on Windows in predictable ways:
 wrong Unix idioms (`Select-String -Recurse`, bare `find`, `prog < file`), Boolean `$?`,
 `-Path` vs `-LiteralPath`, console-codepage encoding, one-shot `-ExecutionPolicy Bypass`,
-and native-argument mangling (`-h127.0.0.1` arriving split in two). This skill encodes each
-pitfall as symptom-plus-fix, verified by local measurement on Windows 10 + PowerShell 7.
+and native-argument mangling (`-h127.0.0.1` arriving split in two). Two more earn their own traps:
+a native tool's own default encoding silently transcoding your data, and characters that look
+like punctuation but are not — CJK curly quotes are string delimiters, backtick escapes inside
+double quotes, variable names that differ only by case. This skill encodes each pitfall as
+symptom-plus-fix, verified by local measurement on Windows 10 + PowerShell 7.
 
 ## Design
 
@@ -30,9 +33,9 @@ Manual: copy `SKILL.md` + `references/` into your agent skills directory
 ## Layout
 
 ```
-SKILL.md                      # 7 traps + trigger/non-trigger contract (<5 KB)
+SKILL.md                      # 8 traps + trigger/non-trigger contract (~10 KB)
 references/bash-to-pwsh.md    # translation table, read only when converting pipelines
-evals/evals.json              # 4 trigger/negative test prompts
+evals/evals.json              # 6 trigger/negative test prompts
 ```
 
 ## Acknowledgments
